@@ -20,7 +20,7 @@ do
     #if not found
     if [[ -z $OPPONENT_ID ]]
     then
-      #insert name
+      #insert data
       INSERT_OPPONENT=$($PSQL "INSERT INTO teams(name) VALUES('$OPPONENT')"); 
       if [[ $INSERT_OPPONENT == "INSERT 0 1" ]]
       then
@@ -35,7 +35,7 @@ do
     #if not found
     if [[ -z $WINNER_ID  ]]
     then
-      #insert name
+      #insert data
       INSERT_WINNER=$($PSQL "INSERT INTO teams(name) VALUES('$WINNER')"); 
       if [[ $INSERT_WINNER == "INSERT 0 1" ]]
       then
@@ -52,8 +52,9 @@ do
     #if not found
     if [[ -z $GAME_ID ]]
     then
-      #insert name
-      INSERT_GAME=$($PSQL "INSERT INTO games(year,round,winner_goals,opponent_goals,winner_id,opponent_id) VALUES('$YEAR','$ROUND','$WINNER_GOALS','$OPPONENT_GOALS','$WINNER_ID','$OPPONENT_ID')"); 
+      #insert data
+      INSERT_GAME=$($PSQL "INSERT INTO games(year,round,winner_goals,opponent_goals,winner_id,opponent_id) VALUES
+      ('$YEAR','$ROUND','$WINNER_GOALS','$OPPONENT_GOALS','$WINNER_ID','$OPPONENT_ID')"); 
       if [[ $INSERT_GAME == "INSERT 0 1" ]]
       then
         echo Inserted into GAMES $ROUND
